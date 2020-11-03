@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pb_mastiff;
+option go_package = "proto;mastiff";
+
+import "google/api/annotations.proto";
+
+// 创建Id
+message CreateIdReq {
+    string Prefix = 1;
+}
+
+message CreateIdRes {
+    string Data = 1;
+}
+
+service Mastiff  {
+    rpc createId(CreateIdReq) returns (CreateIdRes){
+        option (google.api.http) = {
+        post: "/v1/createId"
+        body: "*"
+        };
+    }
+}

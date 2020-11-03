@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "proto/mastiff.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/createId": {
+      "post": {
+        "operationId": "Mastiff_createId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pb_mastiffCreateIdRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pb_mastiffCreateIdReq"
+            }
+          }
+        ],
+        "tags": [
+          "Mastiff"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "pb_mastiffCreateIdReq": {
+      "type": "object",
+      "properties": {
+        "Prefix": {
+          "type": "string"
+        }
+      },
+      "title": "创建Id"
+    },
+    "pb_mastiffCreateIdRes": {
+      "type": "object",
+      "properties": {
+        "Data": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
