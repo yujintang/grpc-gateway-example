@@ -3,8 +3,6 @@
 ```
 ├── README.md
 ├── bin
-│   ├── linux_amd64
-│   └── mac_amd64
 ├── controller
 │   └── mastiff.go
 ├── example
@@ -111,7 +109,7 @@ service Mastiff  {
    
 
 4. 执行`make`,生成对应文件
-		```shell
+	```shell
       make
    ```
 
